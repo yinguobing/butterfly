@@ -24,7 +24,7 @@ class Butterfly(object):
             self.sess = tf.Session(graph=self.graph)
 
         self.input_node_name = input_node_name
-        self.output_node_names = output_node_names
+        self.output_node_names = output_node_names.split(',')
 
     def list_ops(self):
         """Output the op names in the graph."""
@@ -40,6 +40,6 @@ class Butterfly(object):
             inference results.
         """
         input_node = self.graph.get_tensor_by_name(self.input_node_name + ":0")
-        output_node = self.graph.get_tensor_by_name(
-            self.output_node_names + ":0")
-        return self.sess.run(output_node, feed_dict={input_node: inputs})
+        output_nodes = [self.graph.get_tensor_by_name(
+            name + ":0") for name in self.output_node_names]
+        return self.sess.run(output_nodes, feed_dict={input_node: inputs})

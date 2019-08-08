@@ -50,6 +50,8 @@ and the output looks like:
 
 Here the input node is `butterfly/image_tensor` and the output node is `butterfly/ArgMax`. We will use these later.
 
+**NOTE:** If the model has more than one output node, just separate them with '`,`'.
+
 ### Inference with image.
 
 Use the `--image` argument.
