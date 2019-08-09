@@ -28,7 +28,8 @@ if __name__ == '__main__':
 
     # Output all the ops name in the graph.
     if args.list_ops:
-        print(fly.list_ops())
+        for op in fly.list_ops():
+            print(op)
 
     # Process an image.
     if args.image:
