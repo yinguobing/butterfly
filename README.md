@@ -45,7 +45,14 @@ python3 demo.py --model frozen_model.pb --list_ops true
 
 and the output looks like:
 ```
-['butterfly/image_tensor', 'butterfly/map/Shape', 'butterfly/map/strided_slice/stack', ... , 'butterfly/model/final_dense', 'butterfly/ArgMax/dimension', 'butterfly/ArgMax', 'butterfly/softmax_tensor']
+butterfly/image_tensor
+butterfly/map/Shape
+butterfly/map/strided_slice/stack
+...
+butterfly/model/final_dense
+butterfly/ArgMax/dimension
+butterfly/ArgMax
+butterfly/softmax_tensor
 ```
 
 Here the input node is `butterfly/image_tensor` and the output node is `butterfly/ArgMax`. We will use these later.
